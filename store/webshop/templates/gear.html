@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 class="font1">Our products:</h1>
+    <table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Product ID</th>
+      <th scope="col"><a class="btn btn-secondary" href="{% url 'home' %}?s=gear_name">Product</a></th>
+        <th scope="col"><a class="btn btn-secondary" href="{% url 'home' %}?s=availability">Availability</a>
+      <th scope="col"><a class="btn btn-secondary" href="{% url 'home' %}?s=price revert">Highest Price</a>
+        <a class="btn btn-secondary" href="{% url 'home' %}?s=price ">Lowest Price</a>
+    </th>
+      </th>
+              <th scope="col"><a class="btn btn-secondary" href="{% url 'home' %}?s=sport_branch">Sport Branch</a></th>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+
+        {% for g in gear %}
+        <tr>
+            <td>{{g.id}}</td>
+        <td>
+        <a href="{% url 'gear_detail' g.id %}">{{ g.gear_name }}</a></td>
+        <td>{{g.availability}}</td>
+        <td>{{ g.price}}</td>
+            <td><ul>{% for item in g.sport_branch.all %}<li>{{ item.sport_branch}}</li>{% endfor %}</ul></td>
+        </tr>
+        {% endfor %}
+
+<!--<div class="row">-->
+<!--	<div class="col">-->
+<!--		<div class="card card-body">-->
+
+<!--			<form method="get">-->
+<!--				{{GearFilter.form}}-->
+
+<!--		    <button class="btn btn-primary" type="submit">Search</button>-->
+<!--		  </form>-->
+
+<!--		</div>-->
+<!--	</div>-->
+
+<!--</div>-->
+<!--    <ul>-->
+<!--        {% for g in gear|dictsort:"gear_name"  %}-->
+<!--        <li>-->
+<!--            <a href="{% url 'gear_detail' pk=g.id %}">{{ g.gear_name }}</a>-->
+<!--             - {{ g.price}} {{g.availability}}-->
+<!--        </li>-->
+<!--        {% endfor %}-->
+<!--    </ul>-->
+{% endblock %}
+
+<!--{% url 'gear-detail' pk=gear.id %}-->

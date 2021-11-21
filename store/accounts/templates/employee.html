@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="jumbotron">
+    <a class="nav-item nav-link btn btn-primary active" href="{% url 'login' %}">Login</a>
+    <a class="nav-item nav-link btn btn-primary active" href="{% url 'logout' %}">Logout</a>
+    <a class="nav-item nav-link btn btn-primary active" href="{% url 'gear-create' %}">Add new product</a>
+</div>
+{% endblock %}

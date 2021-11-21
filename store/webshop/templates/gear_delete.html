@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3>Removing</h3>
+<form method='post'>
+{% csrf_token %}
+    <p>Are you sure you want to delete item: {{ object.gear_name }}?</p>
+    <input type="submit" value="Submit" class="btn btn-danger">
+</form>
+{% endblock %}

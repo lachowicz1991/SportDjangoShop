@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content%}
+<h1 class="font1">{{gear_detail.gear_name}}</h1>
+<h4><u>Category:</u></h4>
+<ul>
+{% for g in gear_detail.sport_branch.all %}
+    <li><h5>{{g}}</h5></li>
+{% endfor %}
+</ul>
+<h4>Availability: {{gear_detail.availability}}</h4>
+<h4>Description:</h4> <h5>{{ gear_detail.description }}</h5>
+<div class="card card-body">
+	<table class="table">
+		<tr>
+            <th>Rent</th>
+            <th>Rental price</th>
+            <th>Regular price</th>
+        </tr>
+
+        <tr>
+            <td>{{gear_detail.rent}}</td>
+            <td>$ {{ gear_detail.rent_price }}</td>
+            <td>$ {{gear_detail.price}}</td>
+        </tr>
+    </table>
+</div>
+<br>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        <h3>Please enter category that you would like to add:</h3>
+        <br>
+        <table>{{ form }}</table>
+        <br>
+        <input type="submit" value="Submit" class="btn btn-primary">
+
+    </form>
+{% endblock %}
