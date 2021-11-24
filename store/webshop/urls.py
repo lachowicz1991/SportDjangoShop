@@ -1,6 +1,6 @@
 from django.urls import path
 from django.contrib.auth.views import LoginView
-from .views import HomeView, gear_sort, EmployeeView, GearDeleteView, GearUpdateView, GearCreateView, GearListView, OutfitListView, GearDetailView
+from .views import *
 
 urlpatterns = [
 
@@ -12,5 +12,11 @@ urlpatterns = [
 	path('gear/add', GearCreateView.as_view(), name='gear-create'),
 	path('gear/<int:pk>/remove', GearDeleteView.as_view(), name='gear-delete'),
 	path('gear/<int:pk>/update', GearUpdateView.as_view(), name='gear-update'),
+	path('outfit', OutfitListView.as_view(), name='outfit'),
+	path('outfit_detail/<int:pk>', OutfitDetailView.as_view(), name='outfit_detail'),
+	path('sort2', outfit_sort, name='home'),
+	path('outfit/add', OutfitCreateView.as_view(), name='outfit-create'),
+	path('outfit/<int:pk>/remove', OutfitDeleteView.as_view(), name='outfit-delete'),
+	path('outfit/<int:pk>/update', OutfitUpdateView.as_view(), name='outfit-update'),
 	# path('products/', Products.as_view(), name='product'),
 ]

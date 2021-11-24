@@ -24,7 +24,10 @@
             <td>$ {{gear_detail.price}}</td>
         </tr>
     </table>
+    <a class="btn btn-primary" href="{% url 'gear-update' gear_detail.id %}">Update</a>
+    <a class="btn btn-secondary danger" href="{% url 'gear-delete' gear_detail.id %}">Delete</a>
 </div>
+
 <br>
 
 

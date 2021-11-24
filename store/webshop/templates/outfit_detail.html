@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content%}
+<h1 class="font1">{{outfit_detail.outfit_name}}</h1>
+<h4><u>Category:</u></h4>
+<ul>
+{% for g in outfit_detail.sport_branch.all %}
+    <li><h5>{{g}}</h5></li>
+{% endfor %}
+</ul>
+<h4>Availability: {{outfit_detail.availability}}</h4>
+<h4>Description:</h4> <h5>{{ outfit_detail.description }}</h5>
+<div class="card card-body">
+	<table class="table">
+		<tr>
+            <th>Gender</th>
+            <th>Size</th>
+            <th>Regular price</th>
+        </tr>
+
+        <tr>
+            <td>{{outfit_detail.gender}}</td>
+            <td>{{outfit_detail.size}}</td>
+            <td>$ {{gear_detail.price}}</td>
+        </tr>
+    </table>
+        <a class="btn btn-primary" href="{% url 'outfit-update' outfit_detail.id %}">Update</a>
+    <a class="btn btn-secondary danger" href="{% url 'outfit-delete' outfit_detail.id %}">Delete</a>
+</div>
+
+<br>
+
+
+
+
+{% endblock %}
